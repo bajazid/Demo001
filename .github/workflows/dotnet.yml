@@ -16,7 +16,7 @@ jobs:
         environment: [dev]
     environment: ${{ matrix.environment }}
     env:
-      FUNC_APP_NAME: ""
+      FUNCAPP_NAME: ""
       
     steps:
     - name: Update function name
