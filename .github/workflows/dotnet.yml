@@ -21,9 +21,9 @@ jobs:
       id: environment
       run: |
         $env = "${{ matrix.environment }}".ToLower().substring(0, 1)
-        $func_app_name = "corp-{0}-01-creditcheck-func" -f $env
-        echo "::set-output name=FUNCAPP_NAME::"corp-{0}-01-creditcheck-func" -f $env"
+        $az_function_name = "corp-{0}-01-creditcheck-func" -f $env
+        echo "::set-output name=AZ_FUNCIOTN_NAME::$az_function_name -f $env"
        
     - name: echo function name
       run: |
-        echo ${{steps.environment.outputs.FUNCAPP_NAME}}
+        echo ${{steps.environment.outputs.AZ_FUNCIOTN_NAME}}
