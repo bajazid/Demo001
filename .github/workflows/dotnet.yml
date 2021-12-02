@@ -18,6 +18,7 @@ jobs:
       
     steps:
     - name: Update function name
+      id: environment
       run: |
         $env = "${{ matrix.environment }}".ToLower().substring(0, 1)
         $func_app_name = "corp-{0}-01-creditcheck-func" -f $env
@@ -25,4 +26,4 @@ jobs:
        
     - name: echo function name
       run: |
-        echo ${{steps.set_today.outputs.today}}
+        echo ${{steps.environment.outputs.FUNCAPP_NAME}}
