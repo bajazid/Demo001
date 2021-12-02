@@ -15,9 +15,7 @@ jobs:
       matrix:
         environment: [dev]
     environment: ${{ matrix.environment }}
-    env:
-      FUNC_APP_NAME: corp-{0}-01-creditcheck-func
-      
+
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
@@ -33,5 +31,6 @@ jobs:
     - name: Update function name
       run: |
         $env = "${{ matrix.environment }}".ToLower().substring(0, 1)
-        $func_app_name = "${{ env.FUNC_APP_NAME }}" -f $env
+        $func_app_name = "corp-{0}-01-creditcheck-func" -f $env
         echo "::set-env name=FUNC_APP_NAME::$func_app_name"
+        echo {{ env.FUNC_APP_NAME }}
