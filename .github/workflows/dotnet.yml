@@ -15,19 +15,14 @@ jobs:
       matrix:
         environment: [dev]
     environment: ${{ matrix.environment }}
-    env:
-      FUNCAPP_NAME: ""
       
     steps:
     - name: Update function name
       run: |
         $env = "${{ matrix.environment }}".ToLower().substring(0, 1)
         $func_app_name = "corp-{0}-01-creditcheck-func" -f $env
-        echo "FUNCAPP_NAME=$func_app_name" >> $GITHUB_ENV
-        Write-Output "env.$FUNCAPP_NAME"
-        echo "$FUNCAPP_NAME"
-        
+        echo "::set-output name=FUNCAPP_NAME::$func_app_name"
+       
     - name: echo function name
       run: |
-        Write-Output "$FUNCAPP_NAME"
-        echo ${{ env.FUNCAPP_NAME }}
+        echo ${{steps.set_today.outputs.today}}
