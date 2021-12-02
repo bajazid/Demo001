@@ -23,7 +23,7 @@ jobs:
       run: |
         $env = "${{ matrix.environment }}".ToLower().substring(0, 1)
         $func_app_name = "corp-{0}-01-creditcheck-func" -f $env
-        echo "$FUNCAPP_NAME=$func_app_name" >> $GITHUB_ENV
+        echo "FUNCAPP_NAME=$func_app_name" >> $GITHUB_ENV
         Write-Output "env.$FUNCAPP_NAME"
         echo "$FUNCAPP_NAME"
         
