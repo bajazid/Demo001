@@ -30,4 +30,4 @@ jobs:
     - name: echo function name
       run: |
         Write-Output "$FUNCAPP_NAME"
-        echo "$FUNCAPP_NAME"
+        echo echo ${{ env.$FUNCAPP_NAME }}
