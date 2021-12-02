@@ -1,0 +1,37 @@
+name: .NET
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        environment: [dev]
+    environment: ${{ matrix.environment }}
+    env:
+      FUNC_APP_NAME: corp-{0}-01-creditcheck-func
+      
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
+    - name: Update function name
+      run: |
+        $env = "${{ matrix.environment }}".ToLower().substring(0, 1)
+        $func_app_name = "${{ env.FUNC_APP_NAME }}" -f $env
+        echo "::set-env name=FUNC_APP_NAME::$func_app_name"
