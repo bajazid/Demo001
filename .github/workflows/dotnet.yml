@@ -21,7 +21,7 @@ jobs:
       run: |
         $env = "${{ matrix.environment }}".ToLower().substring(0, 1)
         $func_app_name = "corp-{0}-01-creditcheck-func" -f $env
-        echo "::set-env name=FUNCAPP_NAME::$func_app_name"
+        echo $func_app_name >> $FUNCAPP_NAME
         Write-Output $FUNCAPP_NAME
         echo $FUNCAPP_NAME
         
