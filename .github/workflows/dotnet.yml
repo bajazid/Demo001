@@ -22,7 +22,7 @@ jobs:
       run: |
         $env = "${{ matrix.environment }}".ToLower().substring(0, 1)
         $az_function_name = "corp-{0}-01-creditcheck-func" -f $env
-        echo "::set-output name=AZ_FUNCIOTN_NAME::$az_function_name -f $env"
+        echo "::set-output name=AZ_FUNCIOTN_NAME::$az_function_name"
        
     - name: echo function name
       run: |
