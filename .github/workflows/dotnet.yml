@@ -33,7 +33,7 @@ jobs:
         
     - name: Copy Eviny Developer portal
       run: |
-        dir ${{ env.SOURCE_LOCATION }}
+        ls ${{ env.SOURCE_LOCATION }}/*
       
     - name: Run bat script on PowerShell
       shell: pwsh
