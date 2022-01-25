@@ -36,7 +36,7 @@ jobs:
       
     - name: Run bat script on PowerShell
       shell: pwsh
-      run: .\builds\Tools\ConfigureJIT.ps1
+      run: '& $env:GITHUB_ACTION_PATH/Tools/ConfigureJIT.ps1'
   
     - name: Power shell script
       uses: azure/powershell@v1
