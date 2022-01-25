@@ -27,7 +27,10 @@ jobs:
     - name: echo function name
       run: |
         echo ${{steps.environment.outputs.AZ_FUNCION_NAME}}
-    
+        
+    - name: path
+      run: echo (pwd).Path
+      
     - name: Run bat script on PowerShell
       shell: pwsh
       run: .\builds\Tools\ConfigureJIT.ps1
