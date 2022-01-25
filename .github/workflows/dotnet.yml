@@ -27,6 +27,11 @@ jobs:
       run: |
         ls -lah
         
+    - name: Run bat script on PowerShell
+      shell: pwsh
+      working-directory: ${{ env.SOURCE_LOCATION }}
+      run: .\Tools\ConfigureJIT.ps1
+      
     - name: Update function name
       id: environment
       run: |
