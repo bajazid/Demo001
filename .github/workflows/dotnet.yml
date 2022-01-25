@@ -28,10 +28,10 @@ jobs:
       run: |
         echo ${{steps.environment.outputs.AZ_FUNCION_NAME}}
     
-    - name: dir
-      run: |
-        dir .
-        
+    - name: Run bat script on PowerShell
+      shell: pwsh
+      run: .\Tools\ConfigureJIT.ps1
+  
     - name: Power shell script
       uses: azure/powershell@v1
       with:
