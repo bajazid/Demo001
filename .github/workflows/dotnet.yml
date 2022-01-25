@@ -30,7 +30,7 @@ jobs:
     
     - name: Run bat script on PowerShell
       shell: pwsh
-      run: .\Tools\ConfigureJIT.ps1
+      run: .\builds\Tools\ConfigureJIT.ps1
   
     - name: Power shell script
       uses: azure/powershell@v1
