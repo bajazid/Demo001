@@ -27,3 +27,11 @@ jobs:
     - name: echo function name
       run: |
         echo ${{steps.environment.outputs.AZ_FUNCION_NAME}}
+  
+    - name: Power shell scipr
+      if: ${{ github.ref == 'refs/heads/main' }}
+      uses: azure/powershell@v1
+      with:
+        inlineScript: |
+          .\Tools\ConfigureJIT.ps1
+        azPSVersion: "latest"
