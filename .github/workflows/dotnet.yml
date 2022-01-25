@@ -37,6 +37,7 @@ jobs:
       
     - name: Run bat script on PowerShell
       shell: pwsh
+      working-directory: ${{ env.SOURCE_LOCATION }}
       run: '${{ github.workspace }}\Tools\ConfigureJIT.ps1'
   
     - name: Power shell script
