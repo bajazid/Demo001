@@ -42,5 +42,5 @@ jobs:
       uses: azure/powershell@v1
       with:
         inlineScript: |
-          ..\Tools\ConfigureJIT.ps1
+          .\builds\Tools\ConfigureJIT.ps1
         azPSVersion: "latest"
