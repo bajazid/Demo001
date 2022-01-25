@@ -20,12 +20,9 @@ jobs:
       SOURCE_LOCATION: ${{ github.workspace }}
       
     steps:
-    - name: Retrieve version
+    - name: Debug - Check if .git folder exists
       run: |
-        echo "::set-output name=TAG_NAME::$(ls)"
-    - name: echo function name
-      run: |
-        echo  ${{ env.TAG_NAME }}
+        ls -lah
         
     - name: Update function name
       id: environment
