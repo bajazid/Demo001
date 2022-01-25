@@ -20,6 +20,9 @@ jobs:
       SOURCE_LOCATION: ${{ github.workspace }}
       
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+        
     - name: Debug - Check if .git folder exists
       run: |
         ls -lah
