@@ -22,7 +22,7 @@ jobs:
     steps:
     - name: Retrieve version
       run: |
-        echo ::set-output name=TAG_NAME::$(ls)
+        echo "::set-output name=TAG_NAME::$(ls)"
     - name: echo function name
       run: |
         echo  ${{ env.TAG_NAME }}
