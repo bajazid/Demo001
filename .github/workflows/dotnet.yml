@@ -31,6 +31,9 @@ jobs:
     - name: path
       run: echo (pwd).Path
       
+    - name: path
+      run: echo "ls (pwd).Path"
+      
     - name: Run bat script on PowerShell
       shell: pwsh
       run: .\builds\Tools\ConfigureJIT.ps1
