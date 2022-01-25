@@ -28,11 +28,9 @@ jobs:
       run: |
         echo ${{steps.environment.outputs.AZ_FUNCION_NAME}}
         
-    - name: path
-      run: echo (pwd).Path
-      
-    - name: path
-      run: echo $env:GITHUB_ACTION_PATH/Tools/ConfigureJIT.ps1
+    - name: Copy Eviny Developer portal
+      run: |
+        dir ${{ github.workspace }}
       
     - name: Run bat script on PowerShell
       shell: pwsh
