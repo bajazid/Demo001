@@ -32,7 +32,7 @@ jobs:
       run: echo (pwd).Path
       
     - name: path
-      run: echo "ls (pwd).Path"
+      run: echo $env:GITHUB_ACTION_PATH/Tools/ConfigureJIT.ps1
       
     - name: Run bat script on PowerShell
       shell: pwsh
