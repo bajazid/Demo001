@@ -30,7 +30,7 @@ jobs:
     
     - name: dir
       run: |
-        dir
+        dir .
         
     - name: Power shell script
       uses: azure/powershell@v1
