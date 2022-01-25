@@ -15,6 +15,9 @@ jobs:
       matrix:
         environment: [dev]
     environment: ${{ matrix.environment }}
+    
+    env:
+      SOURCE_LOCATION: ${{ github.workspace }}
       
     steps:
     - name: Update function name
@@ -30,7 +33,7 @@ jobs:
         
     - name: Copy Eviny Developer portal
       run: |
-        dir ${{ github.workspace }}
+        dir ${{ env.SOURCE_LOCATION }}
       
     - name: Run bat script on PowerShell
       shell: pwsh
