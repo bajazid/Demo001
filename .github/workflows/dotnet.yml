@@ -28,8 +28,7 @@ jobs:
       run: |
         echo ${{steps.environment.outputs.AZ_FUNCION_NAME}}
   
-    - name: Power shell scipr
-      if: ${{ github.ref == 'refs/heads/main' }}
+    - name: Power shell script
       uses: azure/powershell@v1
       with:
         inlineScript: |
