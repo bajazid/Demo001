@@ -27,7 +27,11 @@ jobs:
     - name: echo function name
       run: |
         echo ${{steps.environment.outputs.AZ_FUNCION_NAME}}
-  
+    
+    - name: dir
+      run: |
+        dir
+        
     - name: Power shell script
       uses: azure/powershell@v1
       with:
