@@ -20,7 +20,24 @@ jobs:
       SOURCE_LOCATION: ${{ github.workspace }}
       
     steps:
+    - name: Retrieve version
+      run: |
+        echo ::set-env name=TAG_NAME::$(ls)
+    - name: echo function name
+      run: |
+        echo  ${{ env.TAG_NAME }}
         
+    - name: Update function name
+      id: environment
+      run: |
+        $env = "${{ matrix.environment }}".ToLower().substring(0, 1)
+        $az_function_name = "corp-{0}-01-creditcheck-func" -f $env
+        echo "::set-output name=AZ_FUNCION_NAME::$az_function_name"
+       
+    - name: echo function name
+      run: |
+        echo ${{steps.environment.outputs.AZ_FUNCION_NAME}}
+      
     - name: Copy Eviny Developer portal
       run: |
         ls ${{ env.SOURCE_LOCATION }}
